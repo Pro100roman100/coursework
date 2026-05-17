@@ -4,6 +4,8 @@
 #include "camera.h"
 #include "game.h"
 #include "endGameState.h"
+#include "button.h"
+#include "menuState.h"
 
 void PlayState::initUI()
 {
@@ -33,7 +35,7 @@ void PlayState::initUI()
 			break;
 		}
 		});
-	UiManager::getInstance().addElement(weaponImage);
+	uiManager->addElement(weaponImage);
 
 	auto ammoText = std::make_shared<Text>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	ammoText->setText("0");
@@ -52,7 +54,7 @@ void PlayState::initUI()
 		else
 			ammoText->setText("");
 		});
-	UiManager::getInstance().addElement(ammoText);
+	uiManager->addElement(ammoText);
 
 	auto healthText = std::make_shared<Text>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	healthText->setText("100");
@@ -65,7 +67,7 @@ void PlayState::initUI()
 			return;
 		healthText->setText(std::to_string(player->getHealth()));
 		});
-	UiManager::getInstance().addElement(healthText);
+	uiManager->addElement(healthText);
 
 	auto startText = std::make_shared<Text>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	startText->setText("Kill all enemies");
@@ -73,21 +75,37 @@ void PlayState::initUI()
 	startText->setPosition(windowSize / 2.f);
 	startText->setFontSize(64.f);
 	float timer = 2.f;
-	startText->setUpdate([timer, startText](float deltaTime) mutable {
+	startText->setUpdate([timer, this, startText](float deltaTime) mutable {
 		timer -= deltaTime;
 		if (timer <= 0)
-			UiManager::getInstance().removeElement(startText.get());
+			uiManager->removeElement(startText.get());
 		});
-	UiManager::getInstance().addElement(startText);
+	uiManager->addElement(startText);
+
+	auto menuButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
+	menuButton->setText("menu");
+	menuButton->setFontSize(42.f);
+	menuButton->setOrigin({ 0.f, 0.f });
+	menuButton->setPosition({ 10.f, 40.f });
+	menuButton->setSize({ 100.f, 36.f });
+	menuButton->setBackgroundColor(sf::Color(129, 98, 113, 255));
+	menuButton->setOnClick([]() {
+		Game::getInstance().changeState(std::make_shared<MenuState>());
+		});
+	uiManager->addElement(menuButton);
+
+	initPauseMenu();
 }
 
 PlayState::PlayState()
 {
 	ObjectManager::getInstance().clear();
 	PhysicsManager::getInstance().clear();
-	UiManager::getInstance().clear();
+	uiManager->clear();
 
-	if (!FileManager::loadFromFile(globalData::currentMap + ".txt"))
+	pauseUiManager = std::make_shared<UiManager>();
+
+	if (!FileManager::loadFromFile(globalData::currentMap))
 		std::cout << "Failed to load " << globalData::currentMap << std::endl;
 
 	initUI();
@@ -95,6 +113,11 @@ PlayState::PlayState()
 
 void PlayState::update(float deltaTime)
 {
+	if (isPaused) {
+		pauseUiManager->updateAll(deltaTime);
+		return;
+	}
+
 	ObjectManager::getInstance().updateAll(deltaTime);
 	PhysicsManager::getInstance().update(deltaTime);
 
@@ -109,7 +132,7 @@ void PlayState::update(float deltaTime)
 		return;
 	}
 
-	UiManager::getInstance().updateAll(deltaTime);
+	uiManager->updateAll(deltaTime);
 }
 
 void PlayState::draw(sf::RenderWindow* window)
@@ -119,10 +142,72 @@ void PlayState::draw(sf::RenderWindow* window)
 
 void PlayState::ui(sf::RenderWindow* window)
 {
-	UiManager::getInstance().drawAll(window);
+
+	if (isPaused) {
+		auto pauseOverlay = std::make_shared<sf::RectangleShape>(windowSize);
+		pauseOverlay->setFillColor(sf::Color(0, 0, 0, 150));
+		window->draw(*pauseOverlay);
+
+		pauseUiManager->drawAll(window);
+	}
+	else
+		uiManager->drawAll(window);
 }
 
 void PlayState::restart()
 {
 	Game::getInstance().changeState(std::make_shared<PlayState>());
+}
+
+void PlayState::handleClick(const sf::Vector2f& clickPos)
+{
+	if (isPaused) {
+		pauseUiManager->handleClick(clickPos);
+	} else {
+		uiManager->handleClick(clickPos);
+	}
+}
+
+void PlayState::escape()
+{
+	isPaused = !isPaused;
+}
+
+void PlayState::initPauseMenu()
+{
+	auto pauseText = std::make_shared<Text>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
+	pauseText->setText("PAUSED");
+	pauseText->setOrigin({ .5f, .5f });
+	pauseText->setPosition(windowSize / 2.f - sf::Vector2f(0.f, 80.f));
+	pauseText->setFontSize(128.f);
+	pauseUiManager->addElement(pauseText);
+
+	auto instructionsText = std::make_shared<Text>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
+	instructionsText->setText("Controls:\nWASD or arrow keys > Move\nmouse > Aim\nclick or space > Attack\nnumber keys > Switch weapon");
+	instructionsText->setOrigin({ 0, 0 });
+	instructionsText->setPosition({ 10.f, 10.f });
+	instructionsText->setFontSize(36.f);
+	pauseUiManager->addElement(instructionsText);
+
+	auto resumeButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
+	resumeButton->setText("main menu");
+	resumeButton->setFontSize(72.f);
+	resumeButton->setOrigin({ .5f, .5f });
+	resumeButton->setPosition({ windowSize.x / 2.f, windowSize.y / 2.f + 90.f });
+	resumeButton->setBackgroundColor(sf::Color(129, 98, 113, 255));
+	resumeButton->setOnClick([this]() {
+		Game::getInstance().changeState(std::make_shared<MenuState>());
+	});
+	pauseUiManager->addElement(resumeButton);
+
+	auto mainMenuButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
+	mainMenuButton->setText("exit");
+	mainMenuButton->setFontSize(72.f);
+	mainMenuButton->setOrigin({ .5f, .5f });
+	mainMenuButton->setPosition({ windowSize.x / 2.f, windowSize.y / 2.f + 170.f });
+	mainMenuButton->setBackgroundColor(sf::Color(129, 98, 113, 255));
+	mainMenuButton->setOnClick([]() {
+		Game::getInstance().closeGame();
+	});
+	pauseUiManager->addElement(mainMenuButton);
 }

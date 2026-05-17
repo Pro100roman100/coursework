@@ -19,10 +19,3 @@ public:
         return PhysicsObject::ObjectType::_static_;
     }
 };
-
-class TileFactory : public ObjectFactory {
-public:
-    static std::shared_ptr<GameObject> createObject() {
-        return std::make_shared<Tile>(ResourceManager::getInstance().getTexture(ResourceManager::Texture::tile));
-    }
-};

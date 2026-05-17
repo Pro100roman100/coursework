@@ -17,10 +17,8 @@ private:
     std::vector<std::shared_ptr<GameObject>> objects;
 
 public:
-    template<std::derived_from<ObjectFactory> T>
-    std::shared_ptr<GameObject> addObject()
+    std::shared_ptr<GameObject> addObject(std::shared_ptr<GameObject> obj)
     {
-        auto obj = T::createObject();
         objects.push_back(obj);
         return obj;
     }

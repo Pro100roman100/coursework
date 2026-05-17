@@ -1,4 +1,5 @@
 #include "fileManager.h"
+#include "factory.h"
 #include "player.h"
 #include "dummy.h"
 #include "weaponItem.h"
@@ -13,7 +14,7 @@
 
 bool FileManager::loadFromFile(const std::string& filename)
 {
-    std::ifstream file(filename);
+    std::ifstream file("maps/" + filename + ".txt");
     if (!file.is_open())
     {
         return false;
@@ -33,51 +34,55 @@ bool FileManager::loadFromFile(const std::string& filename)
         {
             std::shared_ptr<GameObject> obj;
             if (type == "tile") {
-                obj = ObjectManager::getInstance().addObject<TileFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createTile());
             }
             else if (type == "player") {
-                obj = ObjectManager::getInstance().addObject<PlayerFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createPlayer());
                 obj->setPosition(sf::Vector2f(x * tileSize, y * tileSize));
                 Camera::getActive()->setTarget(obj);
             }
             else if (type == "dummy") {
-                obj = ObjectManager::getInstance().addObject<DummyFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createDummy());
             }
             else if (type == "knifeEnemy") {
-                obj = ObjectManager::getInstance().addObject<KnifeEnemyFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createKnifeEnemy());
+                loadPath(obj, iss);
             }
             else if (type == "pistolEnemy") {
-                obj = ObjectManager::getInstance().addObject<PistolEnemyFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createPistolEnemy());
+                loadPath(obj, iss);
             }
             else if (type == "rifleEnemy") {
-                obj = ObjectManager::getInstance().addObject<RifleEnemyFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createRifleEnemy());
+                loadPath(obj, iss);
             }
             else if (type == "shotgunEnemy") {
-                obj = ObjectManager::getInstance().addObject<ShotgunEnemyFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createShotgunEnemy());
+                loadPath(obj, iss);
             }
             else if (type == "knifeItem") {
-                obj = ObjectManager::getInstance().addObject<KnifeItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createKnifeItem());
             }
             else if (type == "pistolItem") {
-                obj = ObjectManager::getInstance().addObject<PistolItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createPistolItem());
             }
             else if (type == "rifleItem") {
-                obj = ObjectManager::getInstance().addObject<RifleItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createRifleItem());
             }
             else if (type == "shotgunItem") {
-                obj = ObjectManager::getInstance().addObject<ShotgunItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createShotgunItem());
             }
             else if (type == "pistolAmmoItem") {
-                obj = ObjectManager::getInstance().addObject<PistolAmmoItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createPistolAmmoItem());
             }
             else if (type == "rifleAmmoItem") {
-                obj = ObjectManager::getInstance().addObject<RifleAmmoItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createRifleAmmoItem());
             }
             else if (type == "shotgunAmmoItem") {
-                obj = ObjectManager::getInstance().addObject<ShotgunAmmoItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createShotgunAmmoItem());
             }
             else if (type == "healItem") {
-                obj = ObjectManager::getInstance().addObject<HealItemFactory>();
+                obj = ObjectManager::getInstance().addObject(Factory::createHealItem());
             }
 
             if (obj) {
@@ -89,6 +94,15 @@ bool FileManager::loadFromFile(const std::string& filename)
 
     file.close();
     return true;
+}
+
+void FileManager::loadPath(std::shared_ptr<GameObject> enemy, std::stringstream& line)
+{
+    auto* enemyObj = dynamic_cast<Enemy*>(enemy.get());
+    int x = 0, y = 0;
+    while (line >> x >> y) {
+        enemyObj->addPatrolPoint(sf::Vector2f(x * tileSize, y * tileSize));
+    }
 }
 
 void FileManager::saveData() {

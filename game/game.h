@@ -42,9 +42,11 @@ public:
 	void toggleFPS();
 	void toggleColliders();
 	void toggleCoordinates();
+	void onEscapePressed();
 	void mousePress(const sf::Event::MouseButtonPressed& mousePressed);
 	void update();
 	void cleanup();
+	void closeGame();
 
 	void incrementEnemyCount();
 	void decrementEnemyCount();

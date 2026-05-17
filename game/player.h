@@ -22,8 +22,3 @@ public:
 
     static Player* getActive();
 };
-
-class PlayerFactory : public ObjectFactory {
-public:
-    static std::shared_ptr<GameObject> createObject();
-};

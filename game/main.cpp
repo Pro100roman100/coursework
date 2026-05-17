@@ -23,7 +23,7 @@ int main() {
             else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
 
                 if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
-                    window.close();
+                    game.onEscapePressed();
                 if (keyPressed->scancode == sf::Keyboard::Scancode::F1)
                     game.toggleFPS();
                 if (keyPressed->scancode == sf::Keyboard::Scancode::F2)

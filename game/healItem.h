@@ -14,10 +14,3 @@ public:
 
     void onCollision(PhysicsObject* target) override;
 };
-
-class HealItemFactory : public ObjectFactory {
-public:
-    HealItemFactory() = delete;
-
-    static std::shared_ptr<GameObject> createObject();
-};

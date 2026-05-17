@@ -4,18 +4,15 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 #include "uiElement.h"
-#include "singleton.h"
 
-class UiManager : public Singleton<UiManager>
+class UiManager
 {
-    friend class Singleton<UiManager>;
-
 private:
-    UiManager() = default;
-
     std::vector<std::shared_ptr<UiElement>> elements;
 
 public:
+    UiManager() = default;
+
     void addElement(std::shared_ptr<UiElement> element);
     void removeElement(UiElement* element);
 

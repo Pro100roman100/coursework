@@ -1,11 +1,12 @@
 #include "rifle.h"
+#include "factory.h"
 #include "physicsManager.h"
 #include "objectManager.h"
 #include "character.h"
 
 Rifle::Rifle(Character* owner) : Weapon(ResourceManager::getInstance().getTexture(ResourceManager::Texture::rifle), owner)
 {
-    setCooldown(.1f);
+    setCooldown(0.11f);
 }
 
 void Rifle::attack(sf::Vector2f direction)
@@ -14,7 +15,7 @@ void Rifle::attack(sf::Vector2f direction)
         return;
 
     owner->getInventory().useAmmo(getType(), 1);
-    auto bulletObj = ObjectManager::getInstance().addObject<RifleBulletFactory>();
+    auto bulletObj = ObjectManager::getInstance().addObject(Factory::createRifleBullet());
     if (Bullet* bullet = dynamic_cast<Bullet*>(bulletObj.get())) {
         bullet->setPosition(getPosition());
         bullet->setOwnerTeam(owner->getTeam());

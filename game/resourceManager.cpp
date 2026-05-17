@@ -49,6 +49,7 @@ void ResourceManager::loadAssets()
         loadTexture(Texture::shotgun_bullet_item, "GFX/shotgun_bullet_item.png");
         loadTexture(Texture::heal_item, "GFX/heal_item.png");
         loadTexture(Texture::tile, "GFX/tile.png");
+        loadTexture(Texture::knife_effect, "GFX/knife_effect.png");
     }
     catch (std::runtime_error err) {
         std::cerr << "Runtime error: " << err.what() << std::endl;

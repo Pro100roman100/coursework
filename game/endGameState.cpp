@@ -6,7 +6,7 @@
 #include "menuState.h"
 
 EndGameState::EndGameState() {
-	UiManager::getInstance().clear();
+	uiManager->clear();
 
 	auto text = std::make_shared<Text>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	switch (globalData::endState)
@@ -25,7 +25,7 @@ EndGameState::EndGameState() {
 	text->setOrigin({ .5f, .5f });
 	text->setPosition(windowSize / 2.f);
 	text->setFontSize(118.f);
-	UiManager::getInstance().addElement(text);
+	uiManager->addElement(text);
 
 	auto restartButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	restartButton->setText("restart");
@@ -36,7 +36,7 @@ EndGameState::EndGameState() {
 	restartButton->setOnClick([]() {
 		Game::getInstance().restart();
 		});
-	UiManager::getInstance().addElement(restartButton);
+	uiManager->addElement(restartButton);
 
 	auto menuButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	menuButton->setText("main menu");
@@ -47,12 +47,12 @@ EndGameState::EndGameState() {
 	menuButton->setOnClick([]() {
 		Game::getInstance().changeState(std::make_shared<MenuState>());
 		});
-	UiManager::getInstance().addElement(menuButton);
+	uiManager->addElement(menuButton);
 }
 
 void EndGameState::update(float deltaTime)
 {
-	UiManager::getInstance().updateAll(deltaTime);
+	uiManager->updateAll(deltaTime);
 }
 
 void EndGameState::draw(sf::RenderWindow* window)
@@ -62,10 +62,15 @@ void EndGameState::draw(sf::RenderWindow* window)
 
 void EndGameState::ui(sf::RenderWindow* window)
 {
-	UiManager::getInstance().drawAll(window);
+	uiManager->drawAll(window);
 }
 
 void EndGameState::restart()
 {
 	Game::getInstance().changeState(std::make_shared<PlayState>());
+}
+
+void EndGameState::escape()
+{
+	Game::getInstance().changeState(std::make_shared<MenuState>());
 }

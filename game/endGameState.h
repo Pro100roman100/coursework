@@ -11,5 +11,6 @@ public:
 	void draw(sf::RenderWindow* window) override;
 	void ui(sf::RenderWindow* window) override;
 	void restart() override;
+	void escape() override;
 };
 

@@ -5,7 +5,7 @@
 
 MenuState::MenuState()
 {
-	UiManager::getInstance().clear();
+	uiManager->clear();
 
 	auto playButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	playButton->setText("play");
@@ -14,9 +14,9 @@ MenuState::MenuState()
   playButton->setPosition({ windowSize.x / 2.f, windowSize.y / 2.f - 60.f });
 	playButton->setBackgroundColor(sf::Color(129, 98, 113, 255));
 	playButton->setOnClick([]() {
-     Game::getInstance().changeState(std::make_shared<LevelSelectState>());
+	 Game::getInstance().changeState(std::make_shared<LevelSelectState>());
 		});
-	UiManager::getInstance().addElement(playButton);
+	uiManager->addElement(playButton);
 
 	auto settingsButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
 	settingsButton->setText("settings");
@@ -27,12 +27,23 @@ MenuState::MenuState()
 	settingsButton->setOnClick([]() {
 		Game::getInstance().changeState(std::make_shared<SettingsState>());
 		});
-	UiManager::getInstance().addElement(settingsButton);
+	uiManager->addElement(settingsButton);
+
+	auto exitButton = std::make_shared<Button>(ResourceManager::getInstance().getFont(ResourceManager::Font::main));
+	exitButton->setText("exit");
+	exitButton->setFontSize(96.f);
+	exitButton->setOrigin({ .5f, .5f });
+	exitButton->setPosition({ windowSize.x / 2.f, windowSize.y / 2.f + 180.f });
+	exitButton->setBackgroundColor(sf::Color(129, 98, 113, 255));
+	exitButton->setOnClick([]() {
+		Game::getInstance().closeGame();
+		});
+	uiManager->addElement(exitButton);
 }
 
 void MenuState::update(float deltaTime)
 {
-	UiManager::getInstance().updateAll(deltaTime);
+	uiManager->updateAll(deltaTime);
 }
 
 void MenuState::draw(sf::RenderWindow* window)
@@ -41,9 +52,14 @@ void MenuState::draw(sf::RenderWindow* window)
 
 void MenuState::ui(sf::RenderWindow* window)
 {
-	UiManager::getInstance().drawAll(window);
+	uiManager->drawAll(window);
 }
 
 void MenuState::restart()
 {
+}
+
+void MenuState::escape()
+{
+	Game::getInstance().closeGame();
 }

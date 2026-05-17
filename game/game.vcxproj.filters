@@ -130,6 +130,15 @@
     <ClCompile Include="healItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="effect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h">
@@ -258,6 +267,15 @@
     <ClInclude Include="healItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="factory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="effect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="GFX\6px-Normal.ttf">
@@ -319,10 +337,15 @@
     <Image Include="GFX\enemy.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="GFX\knife_effect.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="map.txt" />
+    <Text Include="maps\map1.txt" />
+    <Text Include="maps\map.txt" />
     <Text Include="data.txt" />
-    <Text Include="map1.txt" />
+    <Text Include="maps\map2.txt" />
+    <Text Include="maps\map3.txt" />
   </ItemGroup>
 </Project>

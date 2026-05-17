@@ -26,9 +26,3 @@ public:
 	PhysicsObject::ObjectType getType() const override = 0;
 	void onCollision(PhysicsObject* target) override;
 };
-
-class ObjectFactory {
-public:
-	ObjectFactory() = delete;
-	static std::shared_ptr<GameObject> createObject();
-};

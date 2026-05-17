@@ -19,13 +19,3 @@ public:
     void update(float deltaTime) override { }
     Team getTeam() override;
 };
-
-class DummyFactory : public ObjectFactory
-{
-public:
-    static std::shared_ptr<GameObject> createObject()
-    {
-        auto dummy = std::make_shared<Dummy>(ResourceManager::getInstance().getTexture(ResourceManager::Texture::player));
-        return dummy;
-    }
-};

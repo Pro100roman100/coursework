@@ -10,6 +10,8 @@ Player* Player::active = nullptr;
 
 Player::Player(const sf::Texture& texture) : Character(texture)
 {
+    speed = 65.f;
+
     maxHealth = maxHealth * globalData::difficultyMultiplier;
     health = maxHealth;
 
@@ -68,11 +70,4 @@ Team Player::getTeam()
 Player* Player::getActive()
 {
     return active;
-}
-
-std::shared_ptr<GameObject> PlayerFactory::createObject()
-{
-    auto player = std::make_shared<Player>(ResourceManager::getInstance().getTexture(ResourceManager::Texture::player));
-    player->setPosition(sf::Vector2f(0.f, 0.f));
-    return player;
 }

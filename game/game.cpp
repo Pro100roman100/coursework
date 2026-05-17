@@ -42,14 +42,25 @@ void Game::toggleCoordinates()
 	coordinatesToggle = !coordinatesToggle;
 }
 
+void Game::onEscapePressed()
+{
+	if (currentState == nullptr)
+		return;
+
+	currentState->escape();
+}
+
 void Game::mousePress(const sf::Event::MouseButtonPressed& mousePressed)
 {
 	if (mousePressed.button != sf::Mouse::Button::Left)
 		return;
 
+	if (currentState == nullptr)
+		return;
+
 	const sf::Vector2i pixelPos(mousePressed.position);
 	const sf::Vector2f uiPos = window->mapPixelToCoords(pixelPos, uiCamera);
-	UiManager::getInstance().handleClick(uiPos);
+	currentState->handleClick(uiPos);
 }
 
 void Game::update()
@@ -150,7 +161,11 @@ void Game::cleanup() {
 	currentState = nullptr;
 	ObjectManager::getInstance().clear();
 	PhysicsManager::getInstance().clear();
-	UiManager::getInstance().clear();
+}
+
+void Game::closeGame() {
+	if (window != nullptr)
+		window->close();
 }
 
 void Game::incrementEnemyCount()

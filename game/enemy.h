@@ -7,42 +7,47 @@
 #include "pistol.h"
 #include "rifle.h"
 #include "shotgun.h"
+#include "enemyState.h"
+#include <vector>
+#include <memory>
+
+class PatrolState;
+class IdleState;
+class CombatState;
 
 class Enemy : public Character
 {
+	friend class PatrolState;
+	friend class IdleState;
+	friend class CombatState;
+
+private:
+	std::shared_ptr<IEnemyState> currentState;
+	std::vector<sf::Vector2f> patrolPoints;
+	size_t currentPatrolIndex = 0;
+
+	const float enemySpeed = 40.f;
+	const float sightRange = tileSize * 7.f;
+
+	bool canSeePlayerWithRaycast() const;
+
 public:
 	Enemy(sf::Texture& texture);
 	~Enemy();
 
 	void update(float deltaTime) override;
 	Team getTeam() override;
-};
 
-class KnifeEnemyFactory : public ObjectFactory
-{
-public:
-	KnifeEnemyFactory() = delete;
-	static std::shared_ptr<GameObject> createObject();
-};
+	void addPatrolPoint(sf::Vector2f point);
+	void setPatrolPoints(const std::vector<sf::Vector2f>& points);
 
-class PistolEnemyFactory : public ObjectFactory
-{
-public:
-	PistolEnemyFactory() = delete;
-	static std::shared_ptr<GameObject> createObject();
-};
+	void changeState(std::shared_ptr<IEnemyState> newState);
+	void takeDamage(int damage) override;
 
-class RifleEnemyFactory : public ObjectFactory
-{
-public:
-	RifleEnemyFactory() = delete;
-	static std::shared_ptr<GameObject> createObject();
-};
+	bool canSeePlayer() const;
+	const std::vector<sf::Vector2f>& getPatrolPoints() const { return patrolPoints; }
 
-class ShotgunEnemyFactory : public ObjectFactory
-{
-public:
-	ShotgunEnemyFactory() = delete;
-	static std::shared_ptr<GameObject> createObject();
+	size_t getCurrentPatrolIndex() const { return currentPatrolIndex; }
+	void setCurrentPatrolIndex(size_t index) { currentPatrolIndex = index; }
+	void advancePatrolIndex() { currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.size(); }
 };
-

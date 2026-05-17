@@ -12,6 +12,7 @@
 namespace FileManager
 {
     bool loadFromFile(const std::string& filename);
+    void loadPath(std::shared_ptr<GameObject> enemy, std::stringstream& line);
     void loadData();
     void saveData();
     void addCompletedMap(const std::string& map);

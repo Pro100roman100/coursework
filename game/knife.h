@@ -2,6 +2,7 @@
 
 #include "weapon.h"
 #include "resourceManager.h"
+#include "effect.h"
 
 class Knife : public Weapon
 {

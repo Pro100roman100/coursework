@@ -1,10 +1,20 @@
 #include "enemy.h"
 
 #include "resourceManager.h"
+#include "player.h"
+#include "physicsManager.h"
+#include "weaponType.h"
+#include <cmath>
 
 Enemy::Enemy(sf::Texture& texture) : Character(texture)
 {
+    maxHealth = 20;
+    health = maxHealth;
+    speed = enemySpeed;
     Game::getInstance().incrementEnemyCount();
+
+    currentState = std::make_shared<PatrolState>();
+    currentState->enter(this);
 }
 
 Enemy::~Enemy()
@@ -14,6 +24,10 @@ Enemy::~Enemy()
 
 void Enemy::update(float deltaTime)
 {
+    if (currentState)
+    {
+        currentState->update(this, deltaTime);
+    }
 }
 
 Team Enemy::getTeam()
@@ -21,30 +35,69 @@ Team Enemy::getTeam()
     return Team::enemy;
 }
 
-std::shared_ptr<GameObject> KnifeEnemyFactory::createObject()
+bool Enemy::canSeePlayer() const
 {
-    auto enemy = std::make_shared<Enemy>(ResourceManager::getInstance().getTexture(ResourceManager::Texture::enemy));
-   enemy->addWeapon(std::make_shared<Knife>(enemy.get()));
-    return enemy;
+    Player* player = Player::getActive();
+    if (!player)
+        return false;
+
+    sf::Vector2f directionToPlayer = player->getPosition() - getPosition();
+    float distanceToPlayer = std::sqrt(directionToPlayer.x * directionToPlayer.x + 
+                                       directionToPlayer.y * directionToPlayer.y);
+    
+    if (distanceToPlayer > sightRange)
+        return false;
+
+    return canSeePlayerWithRaycast();
 }
 
-std::shared_ptr<GameObject> PistolEnemyFactory::createObject()
+bool Enemy::canSeePlayerWithRaycast() const
 {
-    auto enemy = std::make_shared<Enemy>(ResourceManager::getInstance().getTexture(ResourceManager::Texture::enemy));
-  enemy->addWeapon(std::make_shared<Pistol>(enemy.get()));
-    return enemy;
+    Player* player = Player::getActive();
+    if (!player)
+        return false;
+
+    sf::Vector2f rayStart = getPosition();
+    sf::Vector2f rayEnd = player->getPosition();
+
+    bool pathClear = PhysicsManager::getInstance().checkPath(rayStart, rayEnd);
+
+    return pathClear;
 }
 
-std::shared_ptr<GameObject> RifleEnemyFactory::createObject()
+void Enemy::changeState(std::shared_ptr<IEnemyState> newState)
 {
-    auto enemy = std::make_shared<Enemy>(ResourceManager::getInstance().getTexture(ResourceManager::Texture::enemy));
-   enemy->addWeapon(std::make_shared<Rifle>(enemy.get()));
-    return enemy;
+    if (currentState)
+    {
+        currentState->exit(this);
+    }
+
+    currentState = newState;
+
+    if (currentState)
+    {
+        currentState->enter(this);
+    }
 }
 
-std::shared_ptr<GameObject> ShotgunEnemyFactory::createObject()
+void Enemy::takeDamage(int damage)
 {
-    auto enemy = std::make_shared<Enemy>(ResourceManager::getInstance().getTexture(ResourceManager::Texture::enemy));
- enemy->addWeapon(std::make_shared<Shotgun>(enemy.get()));
-    return enemy;
+    if(!dynamic_cast<CombatState*>(currentState.get()))
+        changeState(std::make_shared<CombatState>());
+    Character::takeDamage(damage);
+}
+
+void Enemy::addPatrolPoint(sf::Vector2f point)
+{
+    patrolPoints.push_back(point);
+}
+
+void Enemy::setPatrolPoints(const std::vector<sf::Vector2f>& points)
+{
+    patrolPoints = points;
+    currentPatrolIndex = 0;
+    if (!patrolPoints.empty())
+    {
+        setPosition(patrolPoints[0]);
+    }
 }

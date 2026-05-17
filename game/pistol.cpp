@@ -1,4 +1,5 @@
 #include "pistol.h"
+#include "factory.h"
 #include "physicsManager.h"
 #include "objectManager.h"
 #include "character.h"
@@ -14,7 +15,7 @@ void Pistol::attack(sf::Vector2f direction)
         return;
 
     owner->getInventory().useAmmo(getType(), 1);
-    auto bulletObj = ObjectManager::getInstance().addObject<PistolBulletFactory>();
+    auto bulletObj = ObjectManager::getInstance().addObject(Factory::createPistolBullet());
     if (Bullet* bullet = dynamic_cast<Bullet*>(bulletObj.get())) {
         bullet->setPosition(getPosition());
         bullet->setOwnerTeam(owner->getTeam());

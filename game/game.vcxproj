@@ -139,8 +139,11 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="character.cpp" />
     <ClCompile Include="dummy.cpp" />
+    <ClCompile Include="effect.cpp" />
     <ClCompile Include="endGameState.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="enemyState.cpp" />
+    <ClCompile Include="factory.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="globalData.cpp" />
@@ -180,8 +183,11 @@
     <ClInclude Include="character.h" />
     <ClInclude Include="damageable.h" />
     <ClInclude Include="dummy.h" />
+    <ClInclude Include="effect.h" />
     <ClInclude Include="endGameState.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemyState.h" />
+    <ClInclude Include="factory.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="gameState.h" />
@@ -222,6 +228,7 @@
     <Image Include="GFX\enemy.png" />
     <Image Include="GFX\heal_item.png" />
     <Image Include="GFX\knife.png" />
+    <Image Include="GFX\knife_effect.png" />
     <Image Include="GFX\knife_item.png" />
     <Image Include="GFX\pistol.png" />
     <Image Include="GFX\pistol_bullet.png" />
@@ -239,8 +246,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="data.txt" />
-    <Text Include="map.txt" />
-    <Text Include="map1.txt" />
+    <Text Include="maps\map.txt" />
+    <Text Include="maps\map1.txt" />
+    <Text Include="maps\map2.txt" />
+    <Text Include="maps\map3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

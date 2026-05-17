@@ -1,4 +1,5 @@
 #include "shotgun.h"
+#include "factory.h"
 #include "objectManager.h"
 #include "physicsManager.h"
 #include "character.h"
@@ -17,7 +18,7 @@ void Shotgun::attack(sf::Vector2f direction)
     owner->getInventory().useAmmo(getType(), 1);
     for (int i = 0; i < 8; i++)
     {
-        auto bulletObj = ObjectManager::getInstance().addObject<ShotgunBulletFactory>();
+        auto bulletObj = ObjectManager::getInstance().addObject(Factory::createShotgunBullet());
         if (Bullet* bullet = dynamic_cast<Bullet*>(bulletObj.get())) {
             bullet->setPosition(getPosition());
             bullet->setOwnerTeam(owner->getTeam());

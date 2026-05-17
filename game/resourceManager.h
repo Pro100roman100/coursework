@@ -28,6 +28,7 @@ public:
 		rifle_bullet_item = 205,
 		shotgun_bullet_item = 206,
         heal_item = 207,
+		knife_effect = 500,
 		tile = 10
 	};
 	enum class Font {
