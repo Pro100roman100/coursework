@@ -1,0 +1,470 @@
+# --- TILES ---
+tile 23 0
+tile 24 0
+tile 25 0
+tile 26 0
+tile 27 0
+tile 28 0
+tile 29 0
+tile 30 0
+tile 31 0
+tile 32 0
+tile 33 0
+tile 34 0
+tile 35 0
+tile 23 1
+tile 35 1
+tile 23 2
+tile 29 2
+tile 35 2
+tile 23 3
+tile 35 3
+tile 23 4
+tile 24 4
+tile 25 4
+tile 28 4
+tile 29 4
+tile 30 4
+tile 31 4
+tile 32 4
+tile 33 4
+tile 34 4
+tile 35 4
+tile 25 5
+tile 28 5
+tile 19 6
+tile 20 6
+tile 21 6
+tile 22 6
+tile 23 6
+tile 24 6
+tile 25 6
+tile 28 6
+tile 29 6
+tile 30 6
+tile 31 6
+tile 32 6
+tile 33 6
+tile 34 6
+tile 35 6
+tile 36 6
+tile 37 6
+tile 38 6
+tile 39 6
+tile 41 6
+tile 42 6
+tile 43 6
+tile 44 6
+tile 45 6
+tile 46 6
+tile 47 6
+tile 48 6
+tile 49 6
+tile 50 6
+tile 7 7
+tile 8 7
+tile 9 7
+tile 10 7
+tile 11 7
+tile 12 7
+tile 13 7
+tile 14 7
+tile 15 7
+tile 16 7
+tile 17 7
+tile 18 7
+tile 19 7
+tile 24 7
+tile 29 7
+tile 34 7
+tile 39 7
+tile 41 7
+tile 50 7
+tile 2 8
+tile 3 8
+tile 4 8
+tile 5 8
+tile 6 8
+tile 7 8
+tile 39 8
+tile 40 8
+tile 41 8
+tile 50 8
+tile 2 9
+tile 11 9
+tile 12 9
+tile 17 9
+tile 18 9
+tile 50 9
+tile 2 10
+tile 11 10
+tile 12 10
+tile 17 10
+tile 18 10
+tile 50 10
+tile 2 11
+tile 5 11
+tile 6 11
+tile 7 11
+tile 39 11
+tile 40 11
+tile 41 11
+tile 50 11
+tile 2 12
+tile 5 12
+tile 7 12
+tile 8 12
+tile 9 12
+tile 10 12
+tile 11 12
+tile 12 12
+tile 13 12
+tile 16 12
+tile 17 12
+tile 18 12
+tile 19 12
+tile 24 12
+tile 29 12
+tile 34 12
+tile 39 12
+tile 41 12
+tile 50 12
+tile 2 13
+tile 5 13
+tile 13 13
+tile 16 13
+tile 19 13
+tile 20 13
+tile 21 13
+tile 22 13
+tile 23 13
+tile 24 13
+tile 25 13
+tile 26 13
+tile 27 13
+tile 28 13
+tile 29 13
+tile 30 13
+tile 33 13
+tile 34 13
+tile 35 13
+tile 36 13
+tile 37 13
+tile 38 13
+tile 39 13
+tile 41 13
+tile 50 13
+tile 0 14
+tile 1 14
+tile 2 14
+tile 5 14
+tile 6 14
+tile 7 14
+tile 12 14
+tile 13 14
+tile 16 14
+tile 17 14
+tile 30 14
+tile 33 14
+tile 41 14
+tile 50 14
+tile 0 15
+tile 7 15
+tile 12 15
+tile 17 15
+tile 23 15
+tile 24 15
+tile 25 15
+tile 26 15
+tile 27 15
+tile 28 15
+tile 29 15
+tile 30 15
+tile 33 15
+tile 34 15
+tile 35 15
+tile 41 15
+tile 50 15
+tile 0 16
+tile 7 16
+tile 12 16
+tile 17 16
+tile 23 16
+tile 35 16
+tile 41 16
+tile 50 16
+tile 0 17
+tile 7 17
+tile 12 17
+tile 17 17
+tile 23 17
+tile 29 17
+tile 35 17
+tile 41 17
+tile 50 17
+tile 0 18
+tile 7 18
+tile 12 18
+tile 17 18
+tile 23 18
+tile 35 18
+tile 41 18
+tile 50 18
+tile 0 19
+tile 1 19
+tile 2 19
+tile 5 19
+tile 6 19
+tile 7 19
+tile 12 19
+tile 13 19
+tile 14 19
+tile 15 19
+tile 16 19
+tile 17 19
+tile 23 19
+tile 24 19
+tile 25 19
+tile 26 19
+tile 27 19
+tile 28 19
+tile 29 19
+tile 30 19
+tile 31 19
+tile 32 19
+tile 33 19
+tile 34 19
+tile 35 19
+tile 41 19
+tile 42 19
+tile 43 19
+tile 44 19
+tile 47 19
+tile 48 19
+tile 49 19
+tile 50 19
+tile 2 20
+tile 5 20
+tile 44 20
+tile 47 20
+tile 2 21
+tile 5 21
+tile 44 21
+tile 47 21
+tile 2 22
+tile 5 22
+tile 21 22
+tile 22 22
+tile 23 22
+tile 24 22
+tile 25 22
+tile 26 22
+tile 38 22
+tile 39 22
+tile 40 22
+tile 41 22
+tile 42 22
+tile 43 22
+tile 44 22
+tile 47 22
+tile 2 23
+tile 5 23
+tile 21 23
+tile 26 23
+tile 38 23
+tile 47 23
+tile 2 24
+tile 5 24
+tile 6 24
+tile 7 24
+tile 8 24
+tile 9 24
+tile 10 24
+tile 11 24
+tile 12 24
+tile 13 24
+tile 14 24
+tile 15 24
+tile 16 24
+tile 17 24
+tile 18 24
+tile 19 24
+tile 20 24
+tile 21 24
+tile 23 24
+tile 24 24
+tile 26 24
+tile 38 24
+tile 47 24
+tile 2 25
+tile 5 25
+tile 13 25
+tile 26 25
+tile 38 25
+tile 42 25
+tile 43 25
+tile 47 25
+tile 2 26
+tile 26 26
+tile 27 26
+tile 28 26
+tile 29 26
+tile 30 26
+tile 31 26
+tile 32 26
+tile 33 26
+tile 34 26
+tile 35 26
+tile 36 26
+tile 38 26
+tile 47 26
+tile 2 27
+tile 9 27
+tile 17 27
+tile 18 27
+tile 19 27
+tile 20 27
+tile 21 27
+tile 36 27
+tile 38 27
+tile 47 27
+tile 2 28
+tile 3 28
+tile 4 28
+tile 5 28
+tile 6 28
+tile 7 28
+tile 8 28
+tile 9 28
+tile 10 28
+tile 11 28
+tile 12 28
+tile 13 28
+tile 14 28
+tile 15 28
+tile 16 28
+tile 17 28
+tile 21 28
+tile 36 28
+tile 38 28
+tile 39 28
+tile 42 28
+tile 43 28
+tile 44 28
+tile 45 28
+tile 46 28
+tile 47 28
+tile 21 29
+tile 23 29
+tile 24 29
+tile 26 29
+tile 27 29
+tile 28 29
+tile 31 29
+tile 32 29
+tile 33 29
+tile 36 29
+tile 39 29
+tile 42 29
+tile 21 30
+tile 26 30
+tile 28 30
+tile 31 30
+tile 32 30
+tile 33 30
+tile 36 30
+tile 37 30
+tile 38 30
+tile 39 30
+tile 42 30
+tile 21 31
+tile 22 31
+tile 23 31
+tile 24 31
+tile 25 31
+tile 26 31
+tile 28 31
+tile 42 31
+tile 28 32
+tile 42 32
+tile 28 33
+tile 29 33
+tile 30 33
+tile 31 33
+tile 32 33
+tile 33 33
+tile 34 33
+tile 35 33
+tile 36 33
+tile 37 33
+tile 38 33
+tile 39 33
+tile 40 33
+tile 41 33
+tile 42 33
+
+# --- PLAYERS ---
+player 14 16
+
+# --- KNIFEENEMYS ---
+knifeEnemy 31 2   30 1   30 3
+knifeEnemy 25 7   25 7   25 12
+knifeEnemy 10 8   10 8   13 8   13 11  10 11
+knifeEnemy 19 11  19 11  19 8   16 8   16 11
+knifeEnemy 30 12  30 12  30 7
+knifeEnemy 27 17  28 16  28 18
+knifeEnemy 44 17  44 17  47 17
+knifeEnemy 44 24  44 24  41 24  41 26  44 26
+
+# --- PISTOLENEMYS ---
+pistolEnemy 1 15    1 15   1 18
+pistolEnemy 6 18    6 18   6 15
+pistolEnemy 6 25    6 25   6 27
+pistolEnemy 14 25  14 25  14 27
+pistolEnemy 23 25  22 25  22 23  25 23  25 25
+pistolEnemy 10 27  10 27  10 25
+pistolEnemy 24 28  22 28  22 30  25 30  25 28
+
+# --- RIFLEENEMYS ---
+rifleEnemy 35 7   35 7   38 7   38 12  35 12
+rifleEnemy 48 8   48 8   44 8   44 16  48 16
+rifleEnemy 38 12  38 12  35 12  35 7   38 7 
+
+# --- SHOTGUNENEMYS ---
+shotgunEnemy 43 12  43 12  43 7
+shotgunEnemy 16 26  16 25  16 27
+shotgunEnemy 41 26  41 26  44 26  44 24  41 24
+shotgunEnemy 30 28  30 28  34 28  34 31  30 31
+shotgunEnemy 34 31  34 31  30 31  30 28  34 28
+
+# --- PISTOLITEMS ---
+pistolItem 13 9
+
+# --- RIFLEITEMS ---
+rifleItem 34 1
+rifleItem 9 25
+
+# --- SHOTGUNITEMS ---
+shotgunItem 39 23
+
+# --- PISTOLAMMOITEMS ---
+pistolAmmoItem 24 2
+pistolAmmoItem 16 9
+pistolAmmoItem 6 15
+pistolAmmoItem 34 17
+
+# --- RIFLEAMMOITEMS ---
+rifleAmmoItem 24 16
+rifleAmmoItem 13 27
+
+# --- SHOTGUNAMMOITEMS ---
+shotgunAmmoItem 39 26
+shotgunAmmoItem 39 27
+
+# --- HEALITEMS ---
+healItem 34 3
+healItem 1 18
+healItem 24 18
+healItem 42 18
+healItem 22 30
+

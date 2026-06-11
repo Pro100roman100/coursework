@@ -1,0 +1,9 @@
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\sfml-graphics-d-3.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\sfml-window-d-3.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\sfml-system-d-3.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\freetyped.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\zd.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\bz2d.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\libpng16d.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\brotlidec.dll
+D:\University\2nd_Semester\Основи програмування\coursework\x64\Debug\brotlicommon.dll

@@ -14,7 +14,7 @@ void ObjectManager::updateAll(float deltaTime)
 
 void ObjectManager::drawAll(sf::RenderWindow* window)
 {
-	for ( auto& obj : objects)
+	for (auto& obj : objects)
 	{
 		if (obj && obj.get() != nullptr)
 			window->draw(*obj);

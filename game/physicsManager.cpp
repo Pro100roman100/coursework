@@ -15,7 +15,7 @@ void PhysicsManager::removePhysicsObject(PhysicsObject* obj) {
 
 std::vector<PhysicsObject*> PhysicsManager::checkOverlap(const Collider& collider) const {
     std::vector<PhysicsObject*> overlappingObjects;
-
+    
     for (auto* obj : physicsObjects) {
         if (!obj) continue;
 

@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -19,263 +11,353 @@
     <Filter Include="Objects\Weapons">
       <UniqueIdentifier>{00c1095e-dea1-4705-b258-ecef3f9df761}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{5c067079-28dc-4475-8ec6-2e1ee23a9d6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{997c13cc-f16a-45cd-a215-aa307460fe92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{c1105fab-2b1a-4e88-9d92-4ea47f8d0480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{46810150-9e5e-46d4-a728-ddae9e76a8ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="resourceManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="objectManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="physicsManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="playState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="camera.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="physicsObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="fileManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="arms.cpp">
+      <Filter>Objects\Weapons</Filter>
       <Filter>Objects\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="knife.cpp">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="weapon.cpp">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="weaponItem.cpp">
+      <Filter>Objects</Filter>
       <Filter>Objects\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="gameObject.cpp">
       <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="dummy.cpp">
+      <Filter>Objects</Filter>
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="character.cpp">
       <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
+      <Filter>Objects</Filter>
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="item.cpp">
       <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="bullet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="inputManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="enemy.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="inventoryManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="uiElement.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="uiManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="endGameState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="menuState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="image.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="text.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="button.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="shotgun.cpp">
+      <Filter>Objects\Weapons</Filter>
       <Filter>Objects\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="rifle.cpp">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="pistol.cpp">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClCompile>
     <ClCompile Include="bulletItem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="globalData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="levelSelectState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="settingsState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="healItem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="factory.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="enemyState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="effect.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="game.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resourceManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="singleton.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="physicsObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="gameState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="objectManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="physicsManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="playState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="consts.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="camera.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="damageable.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="fileManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="weaponItem.h">
+      <Filter>Objects</Filter>
       <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="weapon.h">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="knife.h">
+      <Filter>Objects\Weapons</Filter>
       <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="arms.h">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="tile.h">
+      <Filter>Objects</Filter>
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
       <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="item.h">
+      <Filter>Objects</Filter>
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="gameObject.h">
       <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="dummy.h">
+      <Filter>Objects</Filter>
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="character.h">
       <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="bullet.h">
-      <Filter>Header Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="inputManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="enemy.h">
-      <Filter>Header Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="inventoryManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="weaponType.h">
-      <Filter>Header Files</Filter>
+      <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="uiElement.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="uiManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Managers</Filter>
+      <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="globalData.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="endGameState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="menuState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="image.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="text.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="button.h">
-      <Filter>Header Files</Filter>
+      <Filter>UI</Filter>
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="pistol.h">
+      <Filter>Objects\Weapons</Filter>
       <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="shotgun.h">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="rifle.h">
       <Filter>Objects\Weapons</Filter>
+      <Filter>Objects\Weapons</Filter>
     </ClInclude>
     <ClInclude Include="bulletItem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="levelSelectState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="settingsState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="healItem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Objects</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="factory.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="enemyState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="effect.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="game.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="GFX\6px-Normal.ttf">
@@ -342,10 +424,17 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="maps\map1.txt" />
-    <Text Include="maps\map.txt" />
-    <Text Include="data.txt" />
-    <Text Include="maps\map2.txt" />
-    <Text Include="maps\map3.txt" />
+    <Text Include="maps\map3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="maps\map.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="maps\map1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="maps\map2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
